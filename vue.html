@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CDN en Vue 3</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <div id="app">
+        Hola mundo desde el frontend! <br><br>
+        {{ msj_backend }}
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+    <script>
+        const {createApp} = Vue;
+        const application = createApp({
+            data(){
+                return{
+                    msj_backend: ''
+                }
+            },
+            async mounted(){
+                let datos = await axios.get('https://heroku-hola.herokuapp.com/')
+                console.log(datos)
+                this.msj_backend = datos.data
+            }
+        });
+        application.mount('#app')
+    </script>
+</body>
+</html>
