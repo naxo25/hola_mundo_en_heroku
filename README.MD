@@ -15,3 +15,5 @@ heroku builds
 https://github.com/heroku/heroku-builds
 
 ver errores: heroku logs --app tuAplicacion
+
+https://youtu.be/Ev1mocCuaoo
